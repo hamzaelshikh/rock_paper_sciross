@@ -28,6 +28,13 @@ function compare (userAnswer ,comAnswer){
     }else if (userAnswer == "scissors" && comAnswer == "scissors"){
         draws+=1
     }
+    alert("wins ="+userWins.toString()+" loses ="+computerWins.toString+" draws ="+draws.toString)
+}
+//a function that resets the game//
+function reset(userWins ,computerWins ,draws){
+    userWins =0
+    computerWins =0
+    draws =0 
 }
 //repeat five times and and determine the winner //
 function theGame (userAnswer ,comAnswer){
