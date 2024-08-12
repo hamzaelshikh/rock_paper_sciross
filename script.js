@@ -1,3 +1,4 @@
+
 console.log("hello world");
 // create variables to store the wins and loses and draws//
 let computerWins =0
@@ -22,10 +23,18 @@ if (userAnswer == 'rock' || 'paper'||'scissors'){
     humanAnswer()
 }
 }
+//a function that resets the game//
+function reset(){
+    userWins =0
+    computerWins =0
+    draws =0
+    comAnswer="" 
+}
 //compare the user answer to that of the computer and determine who won  //
 function compare (){
     computerAnswer()
-    humanAnswer()
+    //humanAnswer()
+
     if (userAnswer == "rock" && comAnswer == "rock"){
         draws +=1
     } else if (userAnswer == "rock" && comAnswer == "paper"){
@@ -45,29 +54,31 @@ function compare (){
     }else if (userAnswer == "scissors" && comAnswer == "scissors"){
         draws+=1
     }
-    alert("wins ="+userWins.toString()+" loses ="+computerWins.toString()+" draws ="+draws.toString())
+   
+    if (userWins == 5){
+        document.getElementById("finale").innerHTML="you won"
+        reset()
 }
-//a function that resets the game//
-function reset(userWins ,computerWins ,draws){
-    userWins =0
-    computerWins =0
-    draws =0
-    comAnswer="" 
+    else if (computerWins == 5){
+        document.getElementById("finale").innerHTML="you lost" 
+        reset()
 }
+document.getElementById("result").innerHTML="wins ="+userWins.toString()+" loses ="+computerWins.toString()+" draws ="+draws.toString() ;
+}
+
 //repeat five times and and determine the winner //
 function theGame (userAnswer ,){
+/*    compare()
     compare()
     compare()
     compare()
-    compare()
-    compare()
-    if (userWins > computerWins){
+    compare()*/ 
+    if (userWins == 5){
         alert('you won')
-    }else if (computerWins > userWins){
-        alert(" you lost")
-    }else {
-        alert("it is a draw ")
-    }
-    reset(userWins ,computerWins ,draws)
+        reset(userWins ,computerWins ,draws)
 }
-theGame()
+    else if (computerWins == 5){
+        alert(" you lost")
+        reset(userWins ,computerWins ,draws)
+}
+}
